@@ -10,10 +10,9 @@ import static utils.DisplayUtils.printMatrix;
 
 public class AminoacidSequencesAlignment {
 
-    private static final int GAP_PENALTY = -8;
+    private static final int GAP_PENALTY = -10;
     private static final String VALUES_DELIMITER = ",";
     private static final String SEQUENCES_DELIMETER = ":";
-    private static final String GAP = "-";
     private final HashMap<String, Integer> costMatrixMap = new HashMap<>();
     private int[][] levensteinDistanceMatrix;
     private char[] firstSequenceEntries;
@@ -70,6 +69,15 @@ public class AminoacidSequencesAlignment {
                     secondSequenceEntries, GAP_PENALTY);
         });
 
+        //int alignmentEffectivity = 0;
+
+        /*for (String[] curSequenceArray : sequencesList) {
+            countAlignmentCost(curSequenceArray);
+            alignmentEffectivity += alignmentMethodStrategy.trackBacktrace(levensteinDistanceMatrix, costMatrixMap,
+            firstSequenceEntries, secondSequenceEntries, GAP_PENALTY);
+        }*/
+
+        //System.out.println(String.format("Alignment effectivity is equal to %d", alignmentEffectivity));
     }
 
     public void countAlignmentCost(String[] sequencesArray) {
@@ -79,7 +87,6 @@ public class AminoacidSequencesAlignment {
         System.out.println(firstSequence);
         System.out.println(secondSequence);
         System.out.println();
-        String tempSequence;
         firstSequenceEntries = firstSequence.toCharArray();
         secondSequenceEntries = secondSequence.toCharArray();
         int i = 0;

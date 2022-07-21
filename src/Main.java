@@ -12,6 +12,9 @@ public class Main {
 
         aminoSeqAlignment.setAlignmentMethodStrategy(SWStrategy);
         aminoSeqAlignment.countAlignmentCostsAndCheckBacktraces("aminoAcidResidues");
+
+        AminoAcidSeqAfinneFuncAlignment aminoSeqAfinneAlignment = new AminoAcidSeqAfinneFuncAlignment();
+        aminoSeqAfinneAlignment.countAlignmentCostsAndCheckBacktraces("aminoAcidResidues");
     }
 
 }
